@@ -1,0 +1,81 @@
+/* Yep, I can do CSS too! */
+/* General */
+body {
+    background-color: white;    
+}
+h2 {
+    margin-top: 20px;
+}
+/* Left - panel */
+#panel {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: #e7e7e7;
+    border-right: 2px solid #e7e7e7;
+}
+#panel img {
+    /* due to bottom cut-off */
+    /* margin-bottom: -15px; */
+    width: 100%;
+}
+#panel .progress-bar {
+    text-align: left;
+    padding-left: 45%;
+}
+#skills div {
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+
+/* Right - main content */
+#main {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+#about p {
+    text-align: justify;
+}
+
+#education table,
+#experience table,
+#references table {
+    width: 100%;
+}
+#education table tr td,
+#experience table tr td,
+#references table tr td {
+    padding: 0.3em;
+}
+/* years */
+#education table tr td:nth-child(1),
+#experience table tr td:nth-child(1) {
+    width: 10px;
+    padding-right: 2em;
+}
+/* table rows divider */
+#education table tr:nth-child(2n+2):not(:last-child),
+#experience table tr:nth-child(2n+2):not(:last-child) {
+    border-bottom: 2px solid #e7e7e7;
+}
+
+/* role and institute */
+#education table tr:nth-child(2n+1) td:nth-child(n+2),
+#experience table tr:nth-child(2n+1) td:nth-child(n+2) {
+    /* font-size: 0.8em; */
+    font-weight: bold;
+}
+/* place */
+#education table tr:nth-child(2n+1) td:nth-child(3),
+#experience table tr:nth-child(2n+1) td:nth-child(3) {
+    text-align: right;
+}
+#education table tr:nth-child(2n+1) td:nth-child(3),
+#experience table tr:nth-child(2n+1) td:nth-child(3) {
+    text-align: right;
+}
+
+/**
+ * @Author: https://stackoverflow.com/a/16768855
+ */
+.tooltip-inner {
+    max-width: 300px;
+}
