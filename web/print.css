@@ -25,6 +25,10 @@
 		z-index: 1;
 		border-bottom: 2rem solid #007bff!important;
 	}
+    a {
+        text-decoration: none !important;
+        color: inherit;
+    }
     /* Make name little bit smaller for printing, otherwise it take two lines */
     h1 {
         font-size: 2em;
