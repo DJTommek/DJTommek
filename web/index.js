@@ -13,6 +13,19 @@ $('#birth-date').on('show.bs.tooltip', function () {
 });
 
 /**
+ * Toggle dark theme
+ */
+$('#toggle-theme').on('click', function (e) {
+    e.preventDefault();
+    $('body').toggleClass('dark');
+    try {
+        localStorage.setItem("dark-theme", $('body').hasClass('dark'));
+    } catch (error) {
+        // Local storage is not working (disabled, unsupported, ...)
+    }
+});
+
+/**
  * Just calculate and update age, obviously...
  */
 function calculateDetailedAge() {
