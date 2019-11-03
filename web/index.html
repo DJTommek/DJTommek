@@ -21,17 +21,17 @@
         <meta name="theme-color" content="#ffffff">
     </head>
     <body>
-<script>
-/* set dark theme as soon as possible to prevent blink of white theme */
-try {
-    if (localStorage.getItem("dark-theme") === 'true') {
-        var element = document.getElementsByTagName("body")[0];
-        element.classList.add("dark");
-    }
-} catch (error) {
-    // Local storage is not working (disabled, unsupported, ...)
-}
-</script>
+		<script>
+			/* set dark theme as soon as possible to prevent blink of white theme */
+			try {
+				if (localStorage.getItem("dark-theme") === 'true') {
+					var element = document.getElementsByTagName("body")[0];
+					element.classList.add("dark");
+				}
+			} catch (error) {
+				// Local storage is not working (disabled, unsupported, ...)
+			}
+		</script>
         <div class="container">
             <div class="row">
                 <div class="col-md-3" id="panel">
@@ -232,11 +232,15 @@ try {
                             </tr>
                             <tr>
                                 <td><a href="https://tomas.palider.cz/projects/PavlovSobe/" target="_blank" title="Single page for communal elections Pavlov sobě">Pavlov sobě</a></td>
-                                <td>Single page for communal elections (demo on request)</td>
+                                <td>Single page for communal elections</td>
                             </tr>
                             <tr>
                                 <td><a href="https://github.com/DJTommek/minPHPgallery" target="_blank" title="minPHPgallery Github">minPHPgallery</a></td>
-                                <td>Image gallery in one PHP file Google log-in (<a href="http://mc-miners.eu/images/" target="_blank" title="MC-Miners.eu gallery">demo</a>)</td>
+                                <td>Image gallery in one PHP file Google log-in <span class="d-print-none">(<a href="http://mc-miners.eu/images/" target="_blank" title="MC-Miners.eu gallery">demo</a>)</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="text-dotted" title="Source code is not public (yet)">pldrGallery</span></td>
+                                <td>Node.js and advanced version of minPHPgallery <span class="d-print-none">(<a href="http://gallery.redilap.cz/#/demo/" target="_blank" title="Palider's gallery">demo</a>)</span></td>
                             </tr>
                             <tr>
                                 <td><a href="http://paster.palider.cz" target="_blank" title="Simple text saver">paster.palider.cz</a></td>
@@ -252,7 +256,7 @@ try {
                             </tr>
                         </table>
                         <p>
-                            I have also developed many other small or medium mostly private projects (demo on request) for managing my own cloud network between multiple locations, realtime parsing and filtering emails, new gallery etc.
+                            I have also developed many other small or medium mostly private projects (demo on request) for managing my own cloud network and other apps between multiple locations, realtime parsing and filtering emails etc.
                         </p>
                     </div>
                 </div>

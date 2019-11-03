@@ -1,7 +1,7 @@
 /* Yep, I can do CSS too! */
 /* General */
 body {
-    background-color: white;    
+    background-color: white;
 }
 h2, h3 {
     margin-top: 20px;
@@ -112,4 +112,10 @@ h2, h3 {
     body.dark .progress-bar {
         background-color: orange;
     }
+
+	.text-dotted {
+		border-bottom-style: dotted;
+		border-bottom-width: 1px;
+		cursor: pointer;
+	}
 }
