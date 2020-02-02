@@ -3,6 +3,8 @@
  */
 $(function () {
     calculateDetailedAge();
+    // enable tooltips for all elements with title (use custom template because little arrow looks bad in dark theme)
+  	$('[title]').tooltip({template: '<div class="tooltip" role="tooltip"><div class="tooltip-inner"></div></div>'});
 
     /**
      * Before opening tooltip on birth date

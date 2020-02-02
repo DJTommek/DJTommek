@@ -30,6 +30,10 @@ h2, h3 {
     left: 1em;
     top: 1em;
 }
+#panel-social-links {
+    font-size: 2em;
+    text-align: center;
+}
 #panel .progress-bar {
     text-align: left;
     padding-left: 45%;
@@ -86,9 +90,11 @@ h2, h3 {
 }
 
 /**
+ * Adjust width of tooltip
+ *
  * @Author: https://stackoverflow.com/a/16768855
  */
-.tooltip-inner {
+.tooltip .tooltip-inner {
     max-width: 300px;
 }
 
@@ -114,6 +120,11 @@ h2, h3 {
     }
     body.dark .progress-bar {
         background-color: orange;
+    }
+    body.dark .tooltip .tooltip-inner {
+        color: black;
+        background-color: white;
+        font-weight: bold;
     }
     /**
      * If you don't want to have Bootstrap place <abbr> title into page while printing, use this class.
