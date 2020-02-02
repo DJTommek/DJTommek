@@ -18,6 +18,13 @@ h2, h3 {
     margin-bottom: -15px;
     width: 100%;
 }
+@media (min-width: 768px) and (max-width: 991.98px) {
+    /* keep distance from buttons above image */
+    #panel img {
+        margin-top: 1em;
+    }
+}
+
 #toggle-theme {
     display: block;
     position: absolute;
@@ -88,7 +95,9 @@ h2, h3 {
 #experience table tr:nth-child(2n+1) td:nth-child(3) {
     text-align: right;
 }
-
+#references-other {
+    text-align: justify;
+}
 /**
  * Adjust width of tooltip
  *
