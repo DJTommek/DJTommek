@@ -2,45 +2,42 @@
  * On page load
  */
 $(function () {
-    $('#birth-date').tooltip();
     calculateDetailedAge();
-});
-/*
- * Before opening tooltip on birth date
- */
-$('#birth-date').on('show.bs.tooltip', function () {
-    calculateDetailedAge();
-});
 
-/**
- * Toggle dark theme
- */
-$('#toggle-theme').on('click', function (e) {
-    e.preventDefault();
-    $('body').toggleClass('dark');
-    try {
-        localStorage.setItem("dark-theme", $('body').hasClass('dark'));
-    } catch (error) {
-        // Local storage is not working (disabled, unsupported, ...)
-    }
+    /**
+     * Before opening tooltip on birth date
+     */
+    $('#birth-date').on('show.bs.tooltip', function () {
+        calculateDetailedAge();
+    }).tooltip();
+
+    /**
+     * Toggle dark theme icon
+     */
+    $('#toggle-theme').on('click', function (e) {
+        e.preventDefault();
+        const bodyEl = $('body');
+        bodyEl.toggleClass('dark');
+        try {
+            localStorage.setItem("dark-theme", bodyEl.hasClass('dark').toString());
+        } catch (error) {
+            // Local storage is not working (disabled, unsupported, ...)
+        }
+    });
 });
 
 /**
  * Just calculate and update age, obviously...
  */
 function calculateDetailedAge() {
-    var baseElement = $('#birth-date');
-    var birthDate = new Date(baseElement.text().trim());
-    var diff = new Date() - birthDate;
-    console.log(diff);
-    var diff = msToHuman(diff);
-    console.log(diff);
+    const baseElement = $('#birth-date');
+    const birthDate = new Date(baseElement.text().trim());
+    const diff = msToHuman((new Date()) - birthDate);
     baseElement.attr('data-original-title', diff + ' ago').tooltip();
     
-    var age = Math.floor((new Date() - birthDate) / (365 * 24 * 60 * 60 * 1000));
+    const age = Math.floor((new Date() - birthDate) / (365 * 24 * 60 * 60 * 1000));
     $('#age').text('(' + age + ' years)');  
 }
-
 
 /**
  * Convert miliseconds to short human readable format 
@@ -49,15 +46,22 @@ function calculateDetailedAge() {
  * @returns {String}
  */
 function msToHuman(miliseconds) {
-	var milliseconds =	Math.floor((miliseconds)                               %1000);
-	var seconds =		Math.floor((miliseconds / (1000)                    )  %60  );
-	var minutes =		Math.floor((miliseconds / (1000*60)                 ) %60	);
-	var hours =			Math.floor((miliseconds / (1000*60*60)              ) %24	);
-	var days =			Math.floor((miliseconds / (1000*60*60*24)           ) %30	);
-    var months =        Math.floor((miliseconds / (1000*60*60*24*30.4366)   ) %12   );
-    var years =         Math.floor((miliseconds / (1000*60*60*24*365.24)    )       );
+	if (typeof miliseconds !== 'number' || miliseconds < 0) {
+		throw new Error('Parameter "miliseconds" has to be positive number.');
+	}
+	if (miliseconds === 0) {
+		return '0ms';
+	}
 
-    var result = '';
+	const milliseconds = Math.floor((miliseconds) % 1000);
+	const seconds = Math.floor((miliseconds / 1000) % 60);
+	const minutes = Math.floor((miliseconds / (1000 * 60)) % 60);
+	const hours = Math.floor((miliseconds / (1000 * 60 * 60)) % 24);
+	const days = Math.floor((miliseconds / (1000 * 60 * 60 * 24)) % 30);
+    const months = Math.floor((miliseconds / (1000 * 60 * 60 * 24 * 30.4366)) % 12);
+    const years = Math.floor((miliseconds / (1000 * 60 * 60 * 24 * 365.24)));
+
+    let result = '';
     result += (years > 0 ? ' ' + years + 'y' : '');
     result += (months > 0 ? ' ' + months + 'mo' : '');
     result += (days > 0 ? ' ' + days + 'd' : '');
@@ -67,66 +71,70 @@ function msToHuman(miliseconds) {
     result += (milliseconds > 0 ? ' ' + milliseconds + 'ms' : '');
     return result.trim();
 }
+
 /**
+ * Return true if value is in array
+ *
+ * @param element
+ * @returns {boolean}
+ */
+Array.prototype.inArray = function (element) {
+	return (this.indexOf(element) >= 0)
+};
+
+/**
+ * Pad string
  *
  * @param {int} len
- * @param {String} chr character to pad
- * @param {String} dir (left, both, right)
+ * @param {String} [chr] character to pad
+ * @param {String} [dir] (left, both, right = default)
  * @returns {String}
  */
-String.prototype.pad = String.prototype.pad || function(len, chr, dir)
+String.prototype.pad = String.prototype.pad || function (length, string, type)
 {
-	var str = this;
-	len = (typeof len === 'number') ? len : 0;
-	chr = (typeof chr === 'string') ? chr : ' ';
-	dir = (/left|right|both/i).test(dir) ? dir : 'right';
-	var repeat = function(c, l) { // inner "character" and "length"
-		var repeat = '';
+	let str = this;
+
+	// validation of length
+	if (typeof length !== 'number' || length < 1) {
+		throw new Error('Parameter "length" has to be positive number.')
+	}
+
+	// validation of string
+	if (string === undefined) {
+		string = ' ' // default character is space
+	} else if (typeof string !== 'string' || string.length < 1) {
+		throw new Error('Parameter "string" has to be string of non-zero length')
+	}
+
+	// validation of type (direction)
+	const allowedTypes = ['left', 'right', 'both'];
+	if (type === undefined) {
+		type = 'right' // default type is 'right'
+	} else if (allowedTypes.inArray(type) === false) {
+		throw new Error('Parameter "type" has to be "' + allowedTypes.join('" or "') + '".')
+	}
+
+	const repeat = function (c, l) { // inner "character" and "length"
+		let repeat = '';
 		while (repeat.length < l) {
 			repeat += c;
 		}
 		return repeat.substr(0, l);
-	}
-	var diff = len - str.length;
+	};
+
+	const diff = length - str.length;
 	if (diff > 0) {
-		switch (dir) {
+		switch (type) {
 			case 'left':
-				str = '' + repeat(chr, diff) + str;
+				str = '' + repeat(string, diff) + str;
 				break;
 			case 'both':
-				var half = repeat(chr, Math.ceil(diff / 2));
-				str = (half + str + half).substr(1, len);
+				const half = repeat(string, Math.ceil(diff / 2));
+				str = (half + str + half).substr(0, length);
 				break;
-			default: // and "right"
-				str = '' + str + repeat(chr, diff);
+			case 'right': // and "right"
+				str = '' + str + repeat(string, diff);
 		}
 	}
 	return str;
 };
-
-/**
- * Return standardized format
- * 
- * @param {boolean} returnObject - you can get array instead string
- */
-Date.prototype.human = function (returnObject) {
-    var res = {
-        milisecond: (this.getMilliseconds() + '').pad(3, '0', 'left') + '',
-        second: (this.getSeconds() + '').pad(2, '0', 'left') + '',
-        minute: (this.getMinutes() + '').pad(2, '0', 'left') + '',
-        hour: (this.getHours() + '').pad(2, '0', 'left') + '',
-        day: (this.getDate() + '').pad(2, '0', 'left') + '',
-        month: (this.getMonth() + 1 + '').pad(2, '0', 'left') + '',
-        year: (this.getFullYear() + '').pad(2, '0', 'left') + ''
-    }
-    res.date = res.year + '.' + res.month + '.' + res.day;
-    res.time = res.hour + ':' + res.minute + ':' + res.second;
-    res.toString = function () {
-        return (res.date + ' ' + res.time + '.' + res.milisecond);
-    }
-    if (returnObject === true) {
-        return res;
-    } else {
-        return res + '';
-    }
-}

@@ -12,11 +12,11 @@
         <link href="index.css?2" rel="stylesheet" type="text/css"/>
         <link href="print.css?2" rel="stylesheet" type="text/css"/>
         <!-- favicons settings -->
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#28a745">
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="mask-icon" href="safari-pinned-tab.svg" color="#28a745">
         <meta name="msapplication-TileColor" content="#28a745">
         <meta name="theme-color" content="#ffffff">
     </head>
@@ -25,7 +25,7 @@
 			/* set dark theme as soon as possible to prevent blink of white theme */
 			try {
 				if (localStorage.getItem("dark-theme") === 'true') {
-					var element = document.getElementsByTagName("body")[0];
+					const element = document.getElementsByTagName("body")[0];
 					element.classList.add("dark");
 				}
 			} catch (error) {
@@ -46,7 +46,7 @@
                         <p><i class="fa fa-fw fa-birthday-cake"></i> <span id="birth-date" data-toggle="tooltip" data-placement="top" title="25 July 1993">25 July 1993</span> <span id="age" class="small"></span></p>
                         <p><i class="fa fa-fw fa-address-book"></i> <a href="http://tomas.palider.cz/" target="_blank" title="Home website">tomas.palider.cz</a></p>
                         <p><i class="fa fa-fw fa-envelope-open"></i> <a href="mailto:Tomas@Palider.cz" target="_blank" title="Contact email">tomas@palider.cz</a></p>
-                        <p><i class="fa fa-fw fa-id-card"></i>  (<abbr title="Company ID">IČO</abbr>): 08374767</p>
+                        <p><i class="fa fa-fw fa-id-card"></i>  <span class="text-dotted" title="Company ID">IČO</span>: 08374767</p>
                         <p class="text-center d-print-none">
                             <a href="https://www.linkedin.com/in/tomaspalider/" target="_blank" title="Linkedin Tomas Palider"><i class="fa fa-fw fa-2x fa-linkedin"></i></a>
                             <a href="https://t.me/DJTommek" target="_blank" title="Telegram DJTommek"><i class="fa fa-fw fa-2x fa-telegram"></i></a>
@@ -56,7 +56,7 @@
                     <div id="skills">
                         <h2>Skills</h2>
                         <div>
-                            <b>PHP</b><br>
+                            <h5>PHP</h5>
                             <p class="small">
                                 <a href="https://nette.org/" target="_blank" title="Nette - family of mature and stand-alone components for PHP">Nette</a>,
                                 <a href="https://latte.nette.org/" target="_blank" title="Latte - the safest & trully intuitive templates for PHP">Latte</a>,
@@ -66,7 +66,7 @@
                             </p>
                         </div>
                         <div>
-                            <b>Node.JS</b><br>
+                            <h5>Node.JS</h5>
                             <p class="small">
                                 <a href="https://expressjs.com/" target="_blank" title="Express - Fast, unopinionated, minimalist web framework for Node.js">Express</a>,
                                 npm,
@@ -75,7 +75,7 @@
                             </p>
                         </div>
                         <div>
-                            <b>Javascript</b><br>
+                            <h5>Javascript</h5>
                             <p class="small">
                                 <a href="https://jquery.com/" target="_blank" title="jQuery - fast, small, and feature-rich JavaScript library">jQuery</a>,
                                 AJAX,
@@ -83,7 +83,7 @@
                             </p>
                         </div>
                         <div>
-                            <b>SQL</b><br>
+                            <h5>SQL</h5>
                             <p class="small">
                                 <a href="https://www.mysql.com/" target="_blank" title="MySQL - the world's most popular open source database">MySQL</a>,
                                 <a href="https://mariadb.org/" target="_blank" title="MariaDB Server - one of the most popular database servers in the world">MariaDB</a>,
@@ -96,7 +96,7 @@
                             </p>
                         </div>
                         <div>
-                            <b>HTML, CSS</b><br>
+                            <h5>HTML, CSS</h5>
                             <p class="small">
                                 <a href="https://getbootstrap.com/" target="_blank" title="Bootstrap - open source toolkit for developing with HTML, CSS, and JS">Bootstrap</a>,
                                 <a href="https://foundation.zurb.com/" target="_blank" title="Foundation - The most advanced responsive front-end framework in the world.">Foundation</a>,
@@ -106,7 +106,7 @@
                             </p>
                         </div>
                         <div>
-                            <b>Other</b><br>
+                            <h5>Other</h5>
                             <p class="small">
                                 <a href="https://git-scm.com/" target="_blank" title="Free and open source distributed version control system">GIT</a>,
                                 <a href="https://subversion.apache.org/" target="_blank" title="Enterprise-class centralized version control for the masses">SVN</a>,
@@ -287,7 +287,7 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-        <script src="index.js?2"></script>
+        <script src="index.js?3"></script>
         <!-- As you can see, I love Twitter Bootstrap -->
     </body>
 </html>

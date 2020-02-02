@@ -112,7 +112,9 @@ h2, h3 {
     body.dark .progress-bar {
         background-color: orange;
     }
-
+    /**
+     * If you don't want to have Bootstrap place <abbr> title into page while printing, use this class.
+     */
 	.text-dotted {
 		border-bottom-style: dotted;
 		border-bottom-width: 1px;
