@@ -15,17 +15,20 @@ h2, h3 {
 }
 #panel img {
     /* due to bottom cut-off */
-    /* margin-bottom: -15px; */
+    margin-bottom: -15px;
     width: 100%;
 }
 #toggle-theme {
     display: block;
-    margin-bottom: -35px;
-    text-align: right;
+    position: absolute;
+    right: 1em;
+    top: 1em;
 }
 #download-pdf {
     display: block;
-    margin-bottom: -35px;
+    position: absolute;
+    left: 1em;
+    top: 1em;
 }
 #panel .progress-bar {
     text-align: left;
