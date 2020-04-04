@@ -6,6 +6,7 @@
 	.progress {
 		position: relative;
 	}
+
 	.progress:before {
 		display: block;
 		content: '';
@@ -17,22 +18,26 @@
 		z-index: 0;
 		border-bottom: 2rem solid #eeeeee;
 	}
+
 	.progress-bar {
 		position: absolute;
 		top: 0;
 		bottom: 0;
 		left: 0;
 		z-index: 1;
-		border-bottom: 2rem solid #007bff!important;
+		border-bottom: 2rem solid #007bff !important;
 	}
-    a {
-        text-decoration: none !important;
-        color: inherit;
-    }
-    /* Make name little bit smaller for printing, otherwise it take two lines */
-    h1 {
-        font-size: 2em;
-    }
+
+	a {
+		text-decoration: none !important;
+		color: inherit;
+	}
+
+	/* Make name little bit smaller for printing, otherwise it take two lines */
+	h1 {
+		font-size: 2em;
+	}
+
 	.tooltip {
 		display: none !important;
 	}

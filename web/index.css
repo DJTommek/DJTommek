@@ -1,110 +1,126 @@
 /* Yep, I can do CSS too! */
 /* General */
 body {
-    background-color: white;
+	background-color: white;
 }
+
 h2, h3 {
-    margin-top: 20px;
+	margin-top: 20px;
 }
+
 /* Left - panel */
 #panel {
-    padding-top: 25px;
-    padding-bottom: 25px;
-    background-color: #e7e7e7;
-    border-right: 2px solid #e7e7e7;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	background-color: #e7e7e7;
+	border-right: 2px solid #e7e7e7;
 }
+
 #panel img {
-    /* due to bottom cut-off */
-    margin-bottom: -15px;
-    width: 100%;
+	/* due to bottom cut-off */
+	margin-bottom: -15px;
+	width: 100%;
 }
+
 @media (min-width: 768px) and (max-width: 991.98px) {
-    /* keep distance from buttons above image */
-    #panel img {
-        margin-top: 1em;
-    }
+	/* keep distance from buttons above image */
+	#panel img {
+		margin-top: 1em;
+	}
 }
 
 #toggle-theme {
-    display: block;
-    position: absolute;
-    right: 1em;
-    top: 1em;
+	display: block;
+	position: absolute;
+	right: 1em;
+	top: 1em;
 }
+
 #download-pdf {
-    display: block;
-    position: absolute;
-    left: 1em;
-    top: 1em;
+	display: block;
+	position: absolute;
+	left: 1em;
+	top: 1em;
 }
+
 #panel-social-links {
-    font-size: 2em;
-    text-align: center;
+	font-size: 2em;
+	text-align: center;
 }
+
 #panel .progress-bar {
-    text-align: left;
-    padding-left: 45%;
+	text-align: left;
+	padding-left: 45%;
 }
+
 #skills div {
-    border-top: 1px solid rgba(0,0,0,.1);
+	border-top: 1px solid rgba(0, 0, 0, .1);
 }
 
 /* Right - main content */
 #main {
-    padding-top: 25px;
-    padding-bottom: 25px;
+	padding-top: 25px;
+	padding-bottom: 25px;
 }
+
 #about p {
-    text-align: justify;
+	text-align: justify;
 }
 
 #education table,
 #experience table,
 #references table {
-    width: 100%;
+	width: 100%;
 }
+
 #education table tr td,
 #experience table tr td,
 #references table tr td {
-    padding: 0.3em;
+	padding: 0.3em;
 }
+
 /* years */
 #education table tr td:nth-child(1),
 #experience table tr td:nth-child(1) {
-    width: 10px;
-    padding-right: 2em;
+	width: 10px;
+	padding-right: 2em;
 }
+
 /* table rows divider */
 #education table tr:nth-child(2n+2):not(:last-child),
 #experience table tr:nth-child(2n+2):not(:last-child) {
-    border-bottom: 2px solid #e7e7e7;
+	border-bottom: 2px solid #e7e7e7;
 }
 
 /* role and institute */
 #education table tr:nth-child(2n+1) td:nth-child(n+2),
 #experience table tr:nth-child(2n+1) td:nth-child(n+2) {
-    /* font-size: 0.8em; */
-    font-weight: bold;
+	/* font-size: 0.8em; */
+	font-weight: bold;
 }
+
 /* place */
 #education table tr:nth-child(2n+1) td:nth-child(3),
 #experience table tr:nth-child(2n+1) td:nth-child(3) {
-    text-align: right;
+	text-align: right;
 }
+
 #education table tr:nth-child(2n+1) td:nth-child(3),
 #experience table tr:nth-child(2n+1) td:nth-child(3) {
-    text-align: right;
+	text-align: right;
 }
+
 #references-other {
-    text-align: justify;
+	text-align: justify;
 }
+
 /**
  * Adjust width of tooltip
  *
  * @Author: https://stackoverflow.com/a/16768855
  */
 .tooltip .tooltip-inner {
-    max-width: 300px;
+	max-width: 300px;
 }
 
 /**
@@ -112,32 +128,38 @@ h2, h3 {
  * - but do not change print output
  */
 @media not print {
-    body.dark {
-        background-color: black;
-        color: #909090;
-    }
-    body.dark #panel {
-        background-color: #303030;
-        border-right: 2px solid #303030;
-    }
-    body.dark #education table tr:nth-child(2n+2):not(:last-child),
-    body.dark #experience table tr:nth-child(2n+2):not(:last-child) {
-        border-bottom: 2px solid #303030;
-    }
-    body.dark a {
-        color: orange;
-    }
-    body.dark .progress-bar {
-        background-color: orange;
-    }
-    body.dark .tooltip .tooltip-inner {
-        color: black;
-        background-color: white;
-        font-weight: bold;
-    }
-    /**
-     * If you don't want to have Bootstrap place <abbr> title into page while printing, use this class.
-     */
+	body.dark {
+		background-color: black;
+		color: #909090;
+	}
+
+	body.dark #panel {
+		background-color: #303030;
+		border-right: 2px solid #303030;
+	}
+
+	body.dark #education table tr:nth-child(2n+2):not(:last-child),
+	body.dark #experience table tr:nth-child(2n+2):not(:last-child) {
+		border-bottom: 2px solid #303030;
+	}
+
+	body.dark a {
+		color: orange;
+	}
+
+	body.dark .progress-bar {
+		background-color: orange;
+	}
+
+	body.dark .tooltip .tooltip-inner {
+		color: black;
+		background-color: white;
+		font-weight: bold;
+	}
+
+	/**
+	 * If you don't want to have Bootstrap place <abbr> title into page while printing, use this class.
+	 */
 	.text-dotted {
 		border-bottom-style: dotted;
 		border-bottom-width: 1px;
