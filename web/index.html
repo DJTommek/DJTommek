@@ -26,14 +26,26 @@
 </head>
 <body>
 <script>
-	/* set dark theme as soon as possible to prevent blink of white theme */
+	// apply dark theme as soon as possible to prevent blink of default theme
+	let darkTheme = false;
 	try {
-		if (localStorage.getItem("dark-theme") === 'true') {
-			const element = document.getElementsByTagName("body")[0];
-			element.classList.add("dark");
+		const darkThemeSaved = localStorage.getItem('dark-theme');
+		if (darkThemeSaved) {
+			darkTheme = (darkThemeSaved === 'true');
+		} else if (window.matchMedia) {
+			// User's browser settings prefers specific theme
+			// @see https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
+			if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+				darkTheme = false;
+			} else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				darkTheme = true;
+			}
 		}
 	} catch (error) {
 		// Local storage is not working (disabled, unsupported, ...)
+	}
+	if (darkTheme) {
+		document.body.classList.add('dark');
 	}
 </script>
 <div class="container">
