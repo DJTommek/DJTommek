@@ -1,14 +1,28 @@
 /**
  * On page load
  */
-$(function () {
+window.onload = function () {
+	const toggleThemeEl = document.getElementById('toggle-theme');
+	const birthDateEl = document.getElementById('birth-date');
+	const ageEl = document.getElementById('age');
+
+	const birthDate = new Date(parseInt(birthDateEl.dataset.birthDate));
+
+	/** Calculate and update age in HTML */
+	function calculateDetailedAge() {
+		const diff = msToHuman((new Date()) - birthDate);
+		birthDateEl.dataset.originalTitle = diff + ' ago';
+
+		const age = Math.floor((new Date() - birthDate) / (365 * 24 * 60 * 60 * 1000));
+		ageEl.textContent = '(' + age + ' years)';
+	}
+
 	calculateDetailedAge();
+
 	// enable tooltips for all elements with title (use custom template because little arrow looks bad in dark theme)
 	$('[title]').tooltip({template: '<div class="tooltip" role="tooltip"><div class="tooltip-inner"></div></div>'});
 
-	/**
-	 * Before opening tooltip on birth date
-	 */
+	/** Recalculate age just before opening birth date tooltip */
 	$('#birth-date').on('show.bs.tooltip', function () {
 		calculateDetailedAge();
 	}).tooltip();
@@ -16,30 +30,21 @@ $(function () {
 	/**
 	 * Toggle dark theme icon
 	 */
-	$('#toggle-theme').on('click', function (e) {
-		e.preventDefault();
-		const bodyEl = $('body');
-		bodyEl.toggleClass('dark');
+	toggleThemeEl.addEventListener('click', function (event) {
+		event.preventDefault();
+		const darkTheme = document.body.classList.contains('dark');
+		if (darkTheme) {
+			document.body.classList.remove('dark');
+		} else {
+			document.body.classList.add('dark');
+		}
 		try {
-			localStorage.setItem("dark-theme", bodyEl.hasClass('dark').toString());
+			localStorage.setItem('dark-theme', (!darkTheme).toString());
 		} catch (error) {
 			// Local storage is not working (disabled, unsupported, ...)
 		}
 	});
-});
-
-/**
- * Just calculate and update age, obviously...
- */
-function calculateDetailedAge() {
-	const baseElement = $('#birth-date');
-	const birthDate = new Date(baseElement.text().trim());
-	const diff = msToHuman((new Date()) - birthDate);
-	baseElement.attr('data-original-title', diff + ' ago').tooltip();
-
-	const age = Math.floor((new Date() - birthDate) / (365 * 24 * 60 * 60 * 1000));
-	$('#age').text('(' + age + ' years)');
-}
+};
 
 /**
  * Convert miliseconds to short human readable format
@@ -73,69 +78,3 @@ function msToHuman(miliseconds) {
 	result += (milliseconds > 0 ? ' ' + milliseconds + 'ms' : '');
 	return result.trim();
 }
-
-/**
- * Return true if value is in array
- *
- * @param element
- * @returns {boolean}
- */
-Array.prototype.inArray = function (element) {
-	return (this.indexOf(element) >= 0)
-};
-
-/**
- * Pad string
- *
- * @param {int} len
- * @param {String} [chr] character to pad
- * @param {String} [dir] (left, both, right = default)
- * @returns {String}
- */
-String.prototype.pad = String.prototype.pad || function (length, string, type) {
-	let str = this;
-
-	// validation of length
-	if (typeof length !== 'number' || length < 1) {
-		throw new Error('Parameter "length" has to be positive number.')
-	}
-
-	// validation of string
-	if (string === undefined) {
-		string = ' ' // default character is space
-	} else if (typeof string !== 'string' || string.length < 1) {
-		throw new Error('Parameter "string" has to be string of non-zero length')
-	}
-
-	// validation of type (direction)
-	const allowedTypes = ['left', 'right', 'both'];
-	if (type === undefined) {
-		type = 'right' // default type is 'right'
-	} else if (allowedTypes.inArray(type) === false) {
-		throw new Error('Parameter "type" has to be "' + allowedTypes.join('" or "') + '".')
-	}
-
-	const repeat = function (c, l) { // inner "character" and "length"
-		let repeat = '';
-		while (repeat.length < l) {
-			repeat += c;
-		}
-		return repeat.substr(0, l);
-	};
-
-	const diff = length - str.length;
-	if (diff > 0) {
-		switch (type) {
-			case 'left':
-				str = '' + repeat(string, diff) + str;
-				break;
-			case 'both':
-				const half = repeat(string, Math.ceil(diff / 2));
-				str = (half + str + half).substr(0, length);
-				break;
-			case 'right': // and "right"
-				str = '' + str + repeat(string, diff);
-		}
-	}
-	return str;
-};
