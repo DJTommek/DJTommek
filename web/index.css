@@ -4,6 +4,10 @@ body {
 	background-color: white;
 }
 
+h1 {
+	text-align: center;
+}
+
 h2, h3 {
 	margin-top: 20px;
 }
@@ -14,12 +18,18 @@ h2, h3 {
 	padding-bottom: 25px;
 	background-color: #e7e7e7;
 	border-right: 2px solid #e7e7e7;
+	position: relative;
 }
 
-#panel img {
-	/* due to bottom cut-off */
+#panel-photo {
+	display: block;
+	text-align: center;
+}
+#panel-photo img {
+	/* to create bottom cut-off */
 	margin-bottom: -15px;
 	width: 100%;
+	max-width: 20em;
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
@@ -46,11 +56,6 @@ h2, h3 {
 #panel-social-links {
 	font-size: 2em;
 	text-align: center;
-}
-
-#panel .progress-bar {
-	text-align: left;
-	padding-left: 45%;
 }
 
 #skills div {

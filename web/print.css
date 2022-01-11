@@ -1,33 +1,4 @@
 @media print {
-	/**
-	 * Show progress bar on print
-	 * @author: https://stackoverflow.com/a/46216102/3334403
-	 */
-	.progress {
-		position: relative;
-	}
-
-	.progress:before {
-		display: block;
-		content: '';
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		z-index: 0;
-		border-bottom: 2rem solid #eeeeee;
-	}
-
-	.progress-bar {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		z-index: 1;
-		border-bottom: 2rem solid #007bff !important;
-	}
-
 	a {
 		text-decoration: none !important;
 		color: inherit;
