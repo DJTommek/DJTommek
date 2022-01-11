@@ -44,6 +44,22 @@ window.onload = function () {
 			// Local storage is not working (disabled, unsupported, ...)
 		}
 	});
+
+	/** Create click handler for .copy-to-clipboard elements */
+	for (const element of document.getElementsByClassName('copy-to-clipboard')) {
+		console.log(element);
+		const $element = $(element);
+		element.addEventListener('click', function (event) {
+			event.preventDefault();
+			if (copyToClipboard(element.dataset.toCopy)) {
+				$element.attr('data-original-title', 'Copied!').tooltip('show');
+			} else {
+				$element.attr('data-original-title', 'Couldn\'t copy to clipboard.').tooltip('show');
+			}
+			$element.attr('data-original-title', 'Copy to clipboard');
+		});
+	}
+
 };
 
 /**
@@ -77,4 +93,27 @@ function msToHuman(miliseconds) {
 	result += (seconds > 0 ? ' ' + seconds + 's' : '');
 	result += (milliseconds > 0 ? ' ' + milliseconds + 'ms' : '');
 	return result.trim();
+}
+
+/**
+ * Copy text into clipboard.
+ *
+ * @author https://www.w3schools.com/howto/howto_js_copy_clipboard.asp
+ * @param {string} text
+ * @returns {boolean} true on success, false otherwise
+ */
+function copyToClipboard(text) {
+	// Currently there is no javascript API to put text into clipboard
+	// so we have to create input text element and run command "copy"
+	let inputDom = document.createElement('input');
+	inputDom.setAttribute('type', 'text');
+	// element can't be hidden (display: none), select() wouldn't work, but can be out of viewport
+	inputDom.setAttribute('style', 'display: block; position: absolute; top: -10em');
+	document.body.appendChild(inputDom);
+	inputDom.value = text;
+	inputDom.select();
+	inputDom.setSelectionRange(0, 99999); // for mobile devices
+	const success = document.execCommand("copy");
+	inputDom.parentNode.removeChild(inputDom);
+	return success;
 }
