@@ -10,10 +10,12 @@ window.onload = function () {
 
 	/** Calculate and update age in HTML */
 	function calculateDetailedAge() {
-		const diff = msToHuman((new Date()) - birthDate);
-		birthDateEl.dataset.originalTitle = diff + ' ago';
+		const now = new Date();
+		const diff = now - birthDate;
 
-		const age = Math.floor((new Date() - birthDate) / (365.25 * 24 * 60 * 60 * 1000));
+		birthDateEl.dataset.originalTitle = msToHuman(diff) + ' ago';
+
+		const age = Math.floor(diff / (365.25 * 24 * 60 * 60 * 1000));
 		ageEl.textContent = '(' + age + ' years)';
 	}
 
