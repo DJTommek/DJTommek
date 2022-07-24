@@ -13,7 +13,7 @@ window.onload = function () {
 		const diff = msToHuman((new Date()) - birthDate);
 		birthDateEl.dataset.originalTitle = diff + ' ago';
 
-		const age = Math.floor((new Date() - birthDate) / (365 * 24 * 60 * 60 * 1000));
+		const age = Math.floor((new Date() - birthDate) / (365.25 * 24 * 60 * 60 * 1000));
 		ageEl.textContent = '(' + age + ' years)';
 	}
 
