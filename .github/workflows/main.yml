@@ -1,0 +1,24 @@
+on:
+  push:
+    branches:
+      - master
+
+name: 🚀 Deploy to production
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy on production
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Download latest code
+        uses: actions/checkout@v3
+
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ${{ secrets.ftp_server }}
+          username: ${{ secrets.ftp_username }}
+          password: ${{ secrets.ftp_password }}
+          server-dir: ${{ secrets.ftp_server_dir }}
+          dry-run: false
+          local-dir: ./web/
