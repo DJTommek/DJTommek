@@ -14,14 +14,16 @@ I'm a senior full-stack developer focused on backend, based in Prague and open t
 
 ### 🛠 Technical
 
-|          Area | Keywords                                                                                                                                            |
-|--------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------|
-|        PHP 🐘 | Nette, Latte, Composer, PHPUnit, PHPStan                                                                                                            |
-|    Node.js 📗 | Express, Mocha, npm, modules                                                                                                                        |
-| JavaScript 📒 | jQuery, Google Maps API, Leaflet, Mapbox GL, AJAX, WebSocket                                                                                        |
-|   Database 💾 | MySQL, MariaDB, PostgreSQL, Oracle Database, MSSQL, Firebird, MongoDB, Redis, SQLite, database design, procedures                                   |
-|  HTML, CSS 📘 | Bootstrap, Foundation, Bulma, Font Awesome, LESS, responsive design, CSS sprites                                                                    |
-|      Other 🖥️ | Git, Python, Nginx, Scrapy, Telegram Bot API, Raspberry Pi, JSON Schema, RabbitMQ, Docker, Linux server management, OAuth 2, OOP, Code review, BASH |
+|                     Area | Keywords                                                                                                                                                            |
+|-------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|                   PHP 🐘 | Nette, Latte, Composer, PHPUnit, PHPStan                                                                                                                            |
+|                Python 🐍 | Flask, Scrapy, scripting and automation                                                                                                                             |
+|               Node.js 📗 | Express, Mocha, npm, modules                                                                                                                                        |
+|              Database 💾 | MySQL, MariaDB, PostgreSQL, Oracle Database, MSSQL, Firebird, MongoDB, Redis, SQLite, database design, procedures                                                   |
+|              Frontend 📘 | Bootstrap, JavaScript, TypeScript, jQuery, Leaflet, Mapbox GL, Google Maps API, WebSocket, Chrome extensions, responsive design                                     |
+| APIs and integrations 🔌 | REST API design, OAuth 2, Passkeys, multi-factor authentication, LDAP, Microsoft Entra ID, SMTP and IMAP, payment gateways, JSON Schema, RabbitMQ, Telegram Bot API |
+|      DevOps and tools 🐳 | Git, Docker, Nginx, GitHub Actions, Linux server management, Bash, code review                                                                                      |
+|      Hardware and IoT 🔧 | Raspberry Pi (incl. Pico), ESP microcontrollers, soldering, Home Assistant automations                                                                              |
 
 ### 💬 Languages
 
