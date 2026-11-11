@@ -4,7 +4,7 @@
 
 I'm a senior full-stack developer focused on backend, based in Prague and open to remote, hybrid and contract work.
 
-- ❤️ Primary focus is backend in PHP, Python and Node.js, paired with simple Bootstrap frontends
+- ❤️ Primary focus is backend in PHP, Node.js and Python, paired with simple Bootstrap frontends
 - 🤖 I love automating various tasks, from Telegram bots to Home Assistant
 - ⚡ REST API endpoints are my virtual home
 - 🔧 Tinkering with hardware: Raspberry Pi, Pico, ESP and a soldering iron
@@ -17,8 +17,8 @@ I'm a senior full-stack developer focused on backend, based in Prague and open t
 |                     Area | Keywords                                                                                                                                                            |
 |-------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |                   PHP 🐘 | Nette, Latte, Composer, PHPUnit, PHPStan                                                                                                                            |
-|                Python 🐍 | Flask, Scrapy, scripting and automation                                                                                                                             |
 |               Node.js 📗 | Express, Mocha, npm, modules                                                                                                                                        |
+|                Python 🐍 | Flask, Scrapy, scripting and automation                                                                                                                             |
 |              Database 💾 | MySQL, MariaDB, PostgreSQL, Oracle Database, MSSQL, Firebird, MongoDB, Redis, SQLite, database design, stored procedures                                            |
 |              Frontend 📘 | Bootstrap, JavaScript, TypeScript, jQuery, Leaflet, Mapbox GL, Google Maps API, WebSocket, Chrome extensions, responsive design                                     |
 | APIs and integrations 🔌 | REST API design, OAuth 2, Passkeys, multi-factor authentication, LDAP, Microsoft Entra ID, SMTP and IMAP, payment gateways, JSON Schema, RabbitMQ, Telegram Bot API |
