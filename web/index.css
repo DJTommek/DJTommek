@@ -1,7 +1,9 @@
 /* Yep, I can do CSS too! */
 /* General */
 body {
-	background-color: white;
+	/* colors shared by panel, table dividers and tags, overridden in dark theme below */
+	--cv-surface: #e7e7e7;
+	--cv-tag-border: #d0d0d0;
 }
 
 /* Keep Bootstrap 4 link behaviour: underline only on hover */
@@ -13,15 +15,11 @@ a:hover {
 	text-decoration: underline;
 }
 
-/* Icon helpers (replacement for Font Awesome's fa-fw and fa-2x) */
+/* Icon helper (replacement for Font Awesome's fa-fw) */
 .icon-fw {
 	display: inline-block;
 	width: 1.25em;
 	text-align: center;
-}
-
-.icon-2x {
-	font-size: 2em;
 }
 
 h2, h3 {
@@ -30,17 +28,9 @@ h2, h3 {
 
 /* Left - panel */
 #panel {
-	padding-top: 25px;
-	padding-bottom: 25px;
-	background-color: #e7e7e7;
-	border-right: 2px solid #e7e7e7;
-	position: relative;
+	background-color: var(--cv-surface);
 }
 
-#panel-photo {
-	display: block;
-	text-align: center;
-}
 #panel-photo img {
 	/*
 	 * Photo is wider than tall. Render it in a square box, aligned to the top,
@@ -50,35 +40,8 @@ h2, h3 {
 	object-fit: contain;
 	object-position: top;
 	margin-bottom: -15px;
-	width: 100%;
 	max-width: 20em;
 	height: auto;
-}
-
-@media (min-width: 768px) and (max-width: 991.98px) {
-	/* keep distance from buttons above image */
-	#panel img {
-		margin-top: 1em;
-	}
-}
-
-#toggle-theme {
-	display: block;
-	position: absolute;
-	right: 1em;
-	top: 1em;
-}
-
-#download-pdf {
-	display: block;
-	position: absolute;
-	left: 1em;
-	top: 1em;
-}
-
-#panel-social-links {
-	font-size: 2em;
-	text-align: center;
 }
 
 #skills div {
@@ -86,19 +49,8 @@ h2, h3 {
 }
 
 /* Right - main content */
-#main {
-	padding-top: 25px;
-	padding-bottom: 25px;
-}
-
 #about p {
 	text-align: justify;
-}
-
-#education table,
-#experience table,
-#projects table {
-	width: 100%;
 }
 
 #education table tr td,
@@ -148,13 +100,12 @@ td.years .years-arrow::after {
 #experience table tr:nth-child(2n+2):not(:last-child),
 #education table tr:not(:nth-last-child(2)) td.years,
 #experience table tr:not(:nth-last-child(2)) td.years {
-	border-bottom: 2px solid #e7e7e7;
+	border-bottom: 2px solid var(--cv-surface);
 }
 
 /* role and institute */
 #education table tr:nth-child(2n+1) td:nth-child(n+2),
 #experience table tr:nth-child(2n+1) td:nth-child(n+2) {
-	/* font-size: 0.8em; */
 	font-weight: bold;
 }
 
@@ -164,7 +115,7 @@ td.years .years-arrow::after {
 	text-align: right;
 }
 
-/* technology labels in experience */
+/* technology labels in experience and projects */
 .tags {
 	margin-top: 0.3em;
 }
@@ -175,67 +126,41 @@ td.years .years-arrow::after {
 	padding: 0.1em 0.5em;
 	font-size: 0.8em;
 	border-radius: 0.3em;
-	border: 1px solid #d0d0d0;
-	background-color: #e7e7e7;
+	border: 1px solid var(--cv-tag-border);
+	background-color: var(--cv-surface);
 	white-space: nowrap;
 }
 
-#projects-other {
-	margin-top: 1em;
+/* Wider tooltips */
+.tooltip {
+	--bs-tooltip-max-width: 300px;
 }
 
 /**
- * Adjust width of tooltip
- *
- * @Author: https://stackoverflow.com/a/16768855
- */
-.tooltip .tooltip-inner {
-	max-width: 300px;
-}
-
-/**
- * Change colors to dark mode if body has ".dark" class
+ * Dark theme if body has ".dark" class
  * - but do not change print output
  */
 @media not print {
 	body.dark {
+		--cv-surface: #303030;
+		--cv-tag-border: #404040;
 		background-color: black;
 		color: #909090;
-	}
-
-	body.dark #panel {
-		background-color: #303030;
-		border-right: 2px solid #303030;
-	}
-
-	body.dark #education table tr:nth-child(2n+2):not(:last-child),
-	body.dark #experience table tr:nth-child(2n+2):not(:last-child),
-	body.dark #education table tr:not(:nth-last-child(2)) td.years,
-	body.dark #experience table tr:not(:nth-last-child(2)) td.years {
-		border-bottom: 2px solid #303030;
 	}
 
 	body.dark a {
 		color: orange;
 	}
 
-	body.dark .tags span {
-		background-color: #303030;
-		border-color: #404040;
-	}
-
-	body.dark .tooltip .tooltip-inner {
-		color: black;
-		background-color: white;
+	body.dark .tooltip {
+		--bs-tooltip-bg: white;
+		--bs-tooltip-color: black;
 		font-weight: bold;
 	}
 
-	/**
-	 * If you don't want to have Bootstrap place <abbr> title into page while printing, use this class.
-	 */
-	.text-dotted {
-		border-bottom-style: dotted;
-		border-bottom-width: 1px;
-		cursor: pointer;
+	/* Bootstrap styles only abbr[title], but its tooltips move title to data-bs-original-title */
+	abbr {
+		text-decoration: underline dotted;
+		cursor: help;
 	}
 }
