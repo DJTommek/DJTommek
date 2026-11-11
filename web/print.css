@@ -1,4 +1,29 @@
+@page {
+	size: A4;
+	margin: 10mm;
+}
+
 @media print {
+	/*
+	 * A4 page is narrower than Bootstrap's "md" breakpoint, so columns would stack like on mobile.
+	 * Bootstrap 4 solved it by forcing A3 paper and min-width, Bootstrap 5 has no print layout,
+	 * so force the desktop two-column layout here.
+	 */
+	#panel {
+		flex: 0 0 auto;
+		width: 30%;
+	}
+
+	#main {
+		flex: 1 0 0;
+		width: auto;
+	}
+
+	/* slightly smaller text to fit more on a page */
+	html {
+		font-size: 13px;
+	}
+
 	a {
 		text-decoration: none !important;
 		color: inherit;
@@ -11,5 +36,18 @@
 
 	.tooltip {
 		display: none !important;
+	}
+
+	/* do not split entries across pages */
+	tr,
+	#skills > div,
+	#projects-other li {
+		break-inside: avoid;
+	}
+
+	/* print background colors of panel and tags */
+	body {
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
 	}
 }
