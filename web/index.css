@@ -133,11 +133,6 @@ h2, h3 {
 	text-align: right;
 }
 
-#education table tr:nth-child(2n+1) td:nth-child(3),
-#experience table tr:nth-child(2n+1) td:nth-child(3) {
-	text-align: right;
-}
-
 #references-other {
 	text-align: justify;
 }
@@ -173,10 +168,6 @@ h2, h3 {
 
 	body.dark a {
 		color: orange;
-	}
-
-	body.dark .progress-bar {
-		background-color: orange;
 	}
 
 	body.dark .tooltip .tooltip-inner {
