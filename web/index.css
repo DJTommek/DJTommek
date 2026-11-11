@@ -42,10 +42,17 @@ h2, h3 {
 	text-align: center;
 }
 #panel-photo img {
-	/* to create bottom cut-off */
+	/*
+	 * Photo is wider than tall. Render it in a square box, aligned to the top,
+	 * so .rounded-circle turns the box into a circle with a flat bottom cut-off.
+	 */
+	aspect-ratio: 1 / 1;
+	object-fit: contain;
+	object-position: top;
 	margin-bottom: -15px;
 	width: 100%;
 	max-width: 20em;
+	height: auto;
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
