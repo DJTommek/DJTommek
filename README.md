@@ -8,7 +8,7 @@ I'm a senior full-stack developer focused on backend, based in Prague and open t
 - 🤖 I love automating various tasks, from Telegram bots to Home Assistant
 - ⚡ REST API endpoints are my virtual home
 - 🔧 Tinkering with hardware: Raspberry Pi, Pico, ESP and a soldering iron
-- 🤝 Opensource cooperation is a must have
+- 🤝 Open source cooperation is a must-have
 
 ## 📜 Skills
 
@@ -19,7 +19,7 @@ I'm a senior full-stack developer focused on backend, based in Prague and open t
 |                   PHP 🐘 | Nette, Latte, Composer, PHPUnit, PHPStan                                                                                                                            |
 |                Python 🐍 | Flask, Scrapy, scripting and automation                                                                                                                             |
 |               Node.js 📗 | Express, Mocha, npm, modules                                                                                                                                        |
-|              Database 💾 | MySQL, MariaDB, PostgreSQL, Oracle Database, MSSQL, Firebird, MongoDB, Redis, SQLite, database design, procedures                                                   |
+|              Database 💾 | MySQL, MariaDB, PostgreSQL, Oracle Database, MSSQL, Firebird, MongoDB, Redis, SQLite, database design, stored procedures                                            |
 |              Frontend 📘 | Bootstrap, JavaScript, TypeScript, jQuery, Leaflet, Mapbox GL, Google Maps API, WebSocket, Chrome extensions, responsive design                                     |
 | APIs and integrations 🔌 | REST API design, OAuth 2, Passkeys, multi-factor authentication, LDAP, Microsoft Entra ID, SMTP and IMAP, payment gateways, JSON Schema, RabbitMQ, Telegram Bot API |
 |      DevOps and tools 🐳 | Git, Docker, Nginx, GitHub Actions, Linux server management, Bash, code review                                                                                      |
@@ -38,5 +38,5 @@ I'm a senior full-stack developer focused on backend, based in Prague and open t
 |-------------:|:------------------------------------------------------------|
 |     Email 📧 | [tomas@palider.cz](mailto:tomas@palider.cz)                 |
 |  Telegram ✉️ | [@DJTommek](https://t.me/DJTommek)                          |
-|  Linkedin 🔗 | [tomas-palider](https://www.linkedin.com/in/tomas-palider/) |
-| Github 🐱‍💻 | [DJTommek](https://github.com/DJTommek)                     |
+|  LinkedIn 🔗 | [tomas-palider](https://www.linkedin.com/in/tomas-palider/) |
+| GitHub 🐱‍💻 | [DJTommek](https://github.com/DJTommek)                     |
