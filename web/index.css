@@ -107,16 +107,47 @@ h2, h3 {
 	padding: 0.3em;
 }
 
-/* years */
-#education table tr td:nth-child(1),
-#experience table tr td:nth-child(1) {
-	width: 10px;
-	padding-right: 2em;
+/* years: newest first, so "to" year on top, arrow up, "from" year below; cell spans both rows of the entry */
+#education table td.years,
+#experience table td.years {
+	width: 1%;
+	padding-right: 1.5em;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
 }
 
-/* table rows divider */
+/* HTML keeps logical order "from - to" (screen readers, parsers), CSS shows it reversed */
+td.years .years-range {
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: center;
+}
+
+td.years .years-arrow {
+	position: relative;
+	width: 0;
+	height: 1.4em;
+	margin: 0.45em auto 0.2em;
+	border-left: 1px solid currentColor;
+	opacity: 0.5;
+}
+
+td.years .years-arrow::after {
+	content: '';
+	position: absolute;
+	top: -1px;
+	left: -4px;
+	border-left: 3.5px solid transparent;
+	border-right: 3.5px solid transparent;
+	border-bottom: 6px solid currentColor;
+}
+
+/* table rows divider (years cell spans two rows, so it needs its own border) */
 #education table tr:nth-child(2n+2):not(:last-child),
-#experience table tr:nth-child(2n+2):not(:last-child) {
+#experience table tr:nth-child(2n+2):not(:last-child),
+#education table tr:not(:nth-last-child(2)) td.years,
+#experience table tr:not(:nth-last-child(2)) td.years {
 	border-bottom: 2px solid #e7e7e7;
 }
 
@@ -178,7 +209,9 @@ h2, h3 {
 	}
 
 	body.dark #education table tr:nth-child(2n+2):not(:last-child),
-	body.dark #experience table tr:nth-child(2n+2):not(:last-child) {
+	body.dark #experience table tr:nth-child(2n+2):not(:last-child),
+	body.dark #education table tr:not(:nth-last-child(2)) td.years,
+	body.dark #experience table tr:not(:nth-last-child(2)) td.years {
 		border-bottom: 2px solid #303030;
 	}
 
