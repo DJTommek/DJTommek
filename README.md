@@ -13,13 +13,14 @@ I'm (not only) full-stack web developer.
 
 ### 🛠 Technical
 
-|         Area | Keywords                                                                                                                                            |
-|-------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------|
-|       PHP 🐘 | Nette, Latte, Composer, PHPUnit, PHPStan                                                                                                            |
-|   Node.js 📗 | Express, Mocha, npm, modules                                                                                                                        |
-|  Database 💾 | MySQL, MariaDB, Oracle Database, MSSQL, Firebird, MongoDB, Redis, SQLite, database design, procedures                                               |
-| HTML, CSS 📘 | Bootstrap, Foundation, Bulma, Font Awesome, LESS, responsive design, CSS sprites                                                                    |
-|    Other 🖥️ | GIT, Python, Nginx, Scrapy, Telegram Bot API, Raspberry Pi, JSON Schema, RabbitMQ, Docker, Linux server management, OAuth 2, OOP, Code review, BASH |
+|          Area | Keywords                                                                                                                                            |
+|--------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------|
+|        PHP 🐘 | Nette, Latte, Composer, PHPUnit, PHPStan                                                                                                            |
+|    Node.js 📗 | Express, Mocha, npm, modules                                                                                                                        |
+| JavaScript 📒 | jQuery, Google Maps API, Leaflet, Mapbox GL, AJAX, WebSocket                                                                                        |
+|   Database 💾 | MySQL, MariaDB, PostgreSQL, Oracle Database, MSSQL, Firebird, MongoDB, Redis, SQLite, database design, procedures                                   |
+|  HTML, CSS 📘 | Bootstrap, Foundation, Bulma, Font Awesome, LESS, responsive design, CSS sprites                                                                    |
+|      Other 🖥️ | Git, Python, Nginx, Scrapy, Telegram Bot API, Raspberry Pi, JSON Schema, RabbitMQ, Docker, Linux server management, OAuth 2, OOP, Code review, BASH |
 
 ### 💬 Languages
 
