@@ -2,11 +2,12 @@
 
 ## 👋 Hey there, Tomas here!
 
-I'm (not only) full-stack web developer.
+I'm a senior full-stack developer focused on backend, based in Prague and open to remote, hybrid and contract work.
 
-- ❤️ Primary focus is backend PHP but I'm doing frontend too.
-- 🤖 I love automating various tasks
+- ❤️ Primary focus is backend in PHP, Python and Node.js, paired with simple Bootstrap frontends
+- 🤖 I love automating various tasks, from Telegram bots to Home Assistant
 - ⚡ REST API endpoints are my virtual home
+- 🔧 Tinkering with hardware: Raspberry Pi, Pico, ESP and a soldering iron
 - 🤝 Opensource cooperation is a must have
 
 ## 📜 Skills
