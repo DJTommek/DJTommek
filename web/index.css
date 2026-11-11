@@ -4,6 +4,15 @@ body {
 	background-color: white;
 }
 
+/* Keep Bootstrap 4 link behaviour: underline only on hover */
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
 h2, h3 {
 	margin-top: 20px;
 }

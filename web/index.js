@@ -1,7 +1,7 @@
 /**
  * On page load
  */
-window.onload = function () {
+document.addEventListener('DOMContentLoaded', function () {
 	const toggleThemeEl = document.getElementById('toggle-theme');
 	const birthDateEl = document.getElementById('birth-date');
 	const ageEl = document.getElementById('age');
@@ -9,39 +9,35 @@ window.onload = function () {
 	const birthDate = new Date(parseInt(birthDateEl.dataset.birthDate));
 
 	/** Calculate and update age in HTML */
-	function calculateDetailedAge() {
-		const now = new Date();
-		const diff = now - birthDate;
-
-		birthDateEl.dataset.originalTitle = msToHuman(diff) + ' ago';
-
+	function updateAge() {
+		const diff = Date.now() - birthDate;
 		const age = Math.floor(diff / (365.25 * 24 * 60 * 60 * 1000));
 		ageEl.textContent = '(' + age + ' years)';
 	}
 
-	calculateDetailedAge();
+	updateAge();
 
-	// enable tooltips for all elements with title (use custom template because little arrow looks bad in dark theme)
-	$('[title]').tooltip({template: '<div class="tooltip" role="tooltip"><div class="tooltip-inner"></div></div>'});
-
-	/** Recalculate age just before opening birth date tooltip */
-	$('#birth-date').on('show.bs.tooltip', function () {
-		calculateDetailedAge();
-	}).tooltip();
+	// Tooltips for all elements with title (use custom template without arrow, because little arrow looks bad in dark theme)
+	const tooltipTemplate = '<div class="tooltip" role="tooltip"><div class="tooltip-inner"></div></div>';
+	for (const element of document.querySelectorAll('[title]')) {
+		const options = {template: tooltipTemplate};
+		if (element === birthDateEl) {
+			// Detailed age is recalculated every time tooltip is about to be shown
+			options.title = function () {
+				return msToHuman(Date.now() - birthDate) + ' ago';
+			};
+		}
+		bootstrap.Tooltip.getOrCreateInstance(element, options);
+	}
 
 	/**
 	 * Toggle dark theme icon
 	 */
 	toggleThemeEl.addEventListener('click', function (event) {
 		event.preventDefault();
-		const darkTheme = document.body.classList.contains('dark');
-		if (darkTheme) {
-			document.body.classList.remove('dark');
-		} else {
-			document.body.classList.add('dark');
-		}
+		const darkTheme = document.body.classList.toggle('dark');
 		try {
-			localStorage.setItem('dark-theme', (!darkTheme).toString());
+			localStorage.setItem('dark-theme', darkTheme.toString());
 		} catch (error) {
 			// Local storage is not working (disabled, unsupported, ...)
 		}
@@ -49,20 +45,27 @@ window.onload = function () {
 
 	/** Create click handler for .copy-to-clipboard elements */
 	for (const element of document.getElementsByClassName('copy-to-clipboard')) {
-		console.log(element);
-		const $element = $(element);
-		element.addEventListener('click', function (event) {
+		const tooltip = bootstrap.Tooltip.getOrCreateInstance(element);
+		const originalTitle = element.getAttribute('data-bs-original-title');
+
+		element.addEventListener('hidden.bs.tooltip', function () {
+			tooltip.setContent({'.tooltip-inner': originalTitle});
+		});
+
+		element.addEventListener('click', async function (event) {
 			event.preventDefault();
-			if (copyToClipboard(element.dataset.toCopy)) {
-				$element.attr('data-original-title', 'Copied!').tooltip('show');
-			} else {
-				$element.attr('data-original-title', 'Couldn\'t copy to clipboard.').tooltip('show');
+			let message;
+			try {
+				await navigator.clipboard.writeText(element.dataset.toCopy);
+				message = 'Copied!';
+			} catch (error) {
+				message = 'Couldn\'t copy to clipboard.';
 			}
-			$element.attr('data-original-title', 'Copy to clipboard');
+			tooltip.setContent({'.tooltip-inner': message});
+			tooltip.show();
 		});
 	}
-
-};
+});
 
 /**
  * Convert miliseconds to short human readable format
@@ -95,27 +98,4 @@ function msToHuman(miliseconds) {
 	result += (seconds > 0 ? ' ' + seconds + 's' : '');
 	result += (milliseconds > 0 ? ' ' + milliseconds + 'ms' : '');
 	return result.trim();
-}
-
-/**
- * Copy text into clipboard.
- *
- * @author https://www.w3schools.com/howto/howto_js_copy_clipboard.asp
- * @param {string} text
- * @returns {boolean} true on success, false otherwise
- */
-function copyToClipboard(text) {
-	// Currently there is no javascript API to put text into clipboard
-	// so we have to create input text element and run command "copy"
-	let inputDom = document.createElement('input');
-	inputDom.setAttribute('type', 'text');
-	// element can't be hidden (display: none), select() wouldn't work, but can be out of viewport
-	inputDom.setAttribute('style', 'display: block; position: absolute; top: -10em');
-	document.body.appendChild(inputDom);
-	inputDom.value = text;
-	inputDom.select();
-	inputDom.setSelectionRange(0, 99999); // for mobile devices
-	const success = document.execCommand("copy");
-	inputDom.parentNode.removeChild(inputDom);
-	return success;
 }
