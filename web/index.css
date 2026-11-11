@@ -97,13 +97,13 @@ h2, h3 {
 
 #education table,
 #experience table,
-#references table {
+#projects table {
 	width: 100%;
 }
 
 #education table tr td,
 #experience table tr td,
-#references table tr td {
+#projects table tr td {
 	padding: 0.3em;
 }
 
@@ -149,8 +149,8 @@ h2, h3 {
 	white-space: nowrap;
 }
 
-#references-other {
-	text-align: justify;
+#projects-other {
+	margin-top: 1em;
 }
 
 /**
