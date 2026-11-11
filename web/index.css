@@ -133,6 +133,22 @@ h2, h3 {
 	text-align: right;
 }
 
+/* technology labels in experience */
+.tags {
+	margin-top: 0.3em;
+}
+
+.tags span {
+	display: inline-block;
+	margin: 0 0 0.3em 0;
+	padding: 0.1em 0.5em;
+	font-size: 0.8em;
+	border-radius: 0.3em;
+	border: 1px solid #d0d0d0;
+	background-color: #e7e7e7;
+	white-space: nowrap;
+}
+
 #references-other {
 	text-align: justify;
 }
@@ -168,6 +184,11 @@ h2, h3 {
 
 	body.dark a {
 		color: orange;
+	}
+
+	body.dark .tags span {
+		background-color: #303030;
+		border-color: #404040;
 	}
 
 	body.dark .tooltip .tooltip-inner {
